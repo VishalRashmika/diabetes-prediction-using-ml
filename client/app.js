@@ -11,7 +11,7 @@ function onClickedEstimatePrice() {
 
   var estPrice = document.getElementById("uiEstimatedPrice");
 
-  var url = "http://127.0.0.1:5000/predict_breast_cancer"; //Use this if you are NOT using nginx which is first 7 tutorials
+  var url = "http://127.0.0.1:5000/predict_diabetes"; //Use this if you are NOT using nginx which is first 7 tutorials
   //var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
 
   $.post(url, {
@@ -45,6 +45,9 @@ function onPageLoad() {
 window.onload = onPageLoad;
 
 /*
+8,125,96,0,0,0,0.232,54,1
+4,110,92,0,0,37.6,0.191,30,0
+
 Pregnancies
 Glucose
 BloodPressure
