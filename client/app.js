@@ -1,4 +1,4 @@
-function onClickedEstimatePrice() {
+function onClickedPrediction() {
   console.log("Prediction button clicked");
   var Pregnancies = document.getElementById("uipregnancies")
   var Glucose = document.getElementById("uiglucose")
@@ -9,10 +9,9 @@ function onClickedEstimatePrice() {
   var DiabetesPedigreeFunction = document.getElementById("uiDPF")
   var Age = document.getElementById("uiage")
 
-  var estPrice = document.getElementById("uiEstimatedPrice");
+  var estPrediction = document.getElementById("uiPrediction");
 
-  var url = "http://127.0.0.1:5000/predict_diabetes"; //Use this if you are NOT using nginx which is first 7 tutorials
-  //var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
+  var url = "http://127.0.0.1:5000/predict_diabetes";
 
   $.post(url, {
       t_Pregnancies: parseFloat(Pregnancies.value),
@@ -24,16 +23,15 @@ function onClickedEstimatePrice() {
       t_DiabetesPedigreeFunction: parseFloat(DiabetesPedigreeFunction.value),
       t_Age: parseFloat(Age.value)
   },function(data, status) {
-      console.log(data.estimated_price);
+      console.log(data.est_prediction);
       var prediction = data.prediction;
       console.log(prediction)
       if (prediction == 1){
-        estPrice.innerHTML = "<h2>" + "Positive" + " :(</h2>";
+        estPrediction.innerHTML = "<h2>" + "Positive" + " :(</h2>";
       }
       else if (prediction == 0){
-        estPrice.innerHTML = "<h2>" + "Negative" + " :)</h2>";
+        estPrediction.innerHTML = "<h2>" + "Negative" + " :)</h2>";
       }
-      // estPrice.innerHTML = "<h2>" + data.prediction.toString() + " Lakh</h2>";
       console.log(status);
   });
 }
@@ -43,17 +41,3 @@ function onPageLoad() {
 }
 
 window.onload = onPageLoad;
-
-/*
-8,125,96,0,0,0,0.232,54,1
-4,110,92,0,0,37.6,0.191,30,0
-
-Pregnancies
-Glucose
-BloodPressure
-SkinThickness
-Insulin
-BMI
-DiabetesPedigreeFunction
-Age
-*/

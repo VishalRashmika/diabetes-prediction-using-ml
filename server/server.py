@@ -24,7 +24,7 @@ def predict_home_price():
     Age = float(request.form['t_Age'])
 
     response = jsonify({
-        'prediction': int(util.get_estimated_price(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)[0])
+        'prediction': int(util.get_est_prediction(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)[0])
     })
 
     response.headers.add('Access-Control-Allow-Origin', '*')

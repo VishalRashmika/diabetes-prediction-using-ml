@@ -7,7 +7,7 @@ __locations = None
 __data_columns = None
 __model = None
 
-def get_estimated_price(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
+def get_est_prediction(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
 
     # error handling test:
     if(Pregnancies == 0 and Glucose == 0 and BloodPressure == 0 and SkinThickness == 0 and Insulin == 0 and BMI == 0 and DiabetesPedigreeFunction == 0 and Age == 0):
