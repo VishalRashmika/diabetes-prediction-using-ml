@@ -1,10 +1,14 @@
 function onClickedEstimatePrice() {
-  console.log("Estimate price button clicked");
-	var mean_radius = document.getElementById("uimean_radius");
-  var mean_texture = document.getElementById("uimean_texture");
-  var mean_perimeter = document.getElementById("uimean_perimeter");
-  var mean_area = document.getElementById("uimean_area");
-  var mean_smoothness = document.getElementById("uimean_smoothness");
+  console.log("Prediction button clicked");
+  var Pregnancies = document.getElementById("uipregnancies")
+  var Glucose = document.getElementById("uiglucose")
+  var BloodPressure = document.getElementById("uibloodpressure")
+  var SkinThickness = document.getElementById("uiskinthickness")
+  var Insulin = document.getElementById("uiinsulin")
+  var BMI = document.getElementById("uibmi")
+  var DiabetesPedigreeFunction = document.getElementById("uiDPF")
+  var Age = document.getElementById("uiage")
+
   var estPrice = document.getElementById("uiEstimatedPrice");
 
   var url = "http://127.0.0.1:5000/predict_breast_cancer"; //Use this if you are NOT using nginx which is first 7 tutorials
@@ -16,6 +20,27 @@ function onClickedEstimatePrice() {
       t_mean_perimeter: parseFloat(mean_perimeter.value),
       t_mean_area: parseFloat(mean_area.value),
       t_mean_smoothness: parseFloat(mean_smoothness.value)
+
+      t_Pregnancies
+      t_Glucose
+      t_BloodPressure
+      t_SkinThickness
+      t_Insulin
+      t_BMI
+      t_DiabetesPedigreeFunction
+      t_Age
+
+/*
+Pregnancies
+Glucose
+BloodPressure
+SkinThickness
+Insulin
+BMI
+DiabetesPedigreeFunction
+Age
+*/
+
   },function(data, status) {
       console.log(data.estimated_price);
       var prediction = data.prediction;
