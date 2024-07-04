@@ -15,32 +15,14 @@ function onClickedEstimatePrice() {
   //var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
 
   $.post(url, {
-      t_mean_radius: parseFloat(mean_radius.value),
-      t_mean_texture: parseFloat(mean_texture.value),
-      t_mean_perimeter: parseFloat(mean_perimeter.value),
-      t_mean_area: parseFloat(mean_area.value),
-      t_mean_smoothness: parseFloat(mean_smoothness.value)
-
-      t_Pregnancies
-      t_Glucose
-      t_BloodPressure
-      t_SkinThickness
-      t_Insulin
-      t_BMI
-      t_DiabetesPedigreeFunction
-      t_Age
-
-/*
-Pregnancies
-Glucose
-BloodPressure
-SkinThickness
-Insulin
-BMI
-DiabetesPedigreeFunction
-Age
-*/
-
+      t_Pregnancies: parseFloat(Pregnancies.value),
+      t_Glucose: parseFloat(Glucose.value),
+      t_BloodPressure: parseFloat(BloodPressure.value),
+      t_SkinThickness: parseFloat(SkinThickness.value),
+      t_Insulin: parseFloat(Insulin.value),
+      t_BMI: parseFloat(BMI.value),
+      t_DiabetesPedigreeFunction: parseFloat(DiabetesPedigreeFunction.value),
+      t_Age: parseFloat(Age.value)
   },function(data, status) {
       console.log(data.estimated_price);
       var prediction = data.prediction;
@@ -61,3 +43,14 @@ function onPageLoad() {
 }
 
 window.onload = onPageLoad;
+
+/*
+Pregnancies
+Glucose
+BloodPressure
+SkinThickness
+Insulin
+BMI
+DiabetesPedigreeFunction
+Age
+*/
