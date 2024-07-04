@@ -9,7 +9,7 @@ __model = None
 
 def get_est_prediction(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
 
-    # error handling test:
+    # error handling
     if(Pregnancies == 0 and Glucose == 0 and BloodPressure == 0 and SkinThickness == 0 and Insulin == 0 and BMI == 0 and DiabetesPedigreeFunction == 0 and Age == 0):
         return [0]
 
@@ -21,8 +21,6 @@ def get_est_prediction(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,B
     input6 = [BMI]
     input7 = [DiabetesPedigreeFunction]
     input8 = [Age]
-
-
 
     data = {
         "Pregnancies":input1,
