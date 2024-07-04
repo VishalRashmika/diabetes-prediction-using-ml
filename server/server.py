@@ -3,15 +3,6 @@ import util
 
 app = Flask(__name__)
 
-@app.route('/get_location_names', methods=['GET'])
-def get_location_names():
-    response = jsonify({
-        'locations': util.get_location_names()
-    })
-    response.headers.add('Access-Control-Allow-Origin', '*')
-
-    return response
-
 @app.route('/predict_diabetes', methods=['GET', 'POST'])
 def predict_home_price():
     Pregnancies = float(request.form['t_Pregnancies'])
@@ -26,12 +17,11 @@ def predict_home_price():
     response = jsonify({
         'prediction': int(util.get_est_prediction(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)[0])
     })
-
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
 
 if __name__ == "__main__":
-    print("Starting Python Flask Server For Breast Cancer Pediction...")
+    print("Starting Python Flask Server For Diabetes Pediction...")
     util.load_saved_artifacts()
     app.run()
